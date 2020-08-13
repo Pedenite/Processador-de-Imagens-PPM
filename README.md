@@ -4,3 +4,7 @@ Projeto final de APC (1° semestre de computação) - 2018/1
 Para compilar: gcc Projeto2.c -lm -o Projeto2
 
 Programa vai ler um arquivo .ppm e realizar as modificações desejadas pelo usuário de acordo com as opções no menu. A opção principal que processa a imagem utiliza um algoritmo k-means para agrupar pixels e os classificar de acordo com as cores escolhidas pelo usuário. Em seguida, o salva em um arquivo.
+
+* Para compilar: `gcc proj.c -lm -o output`
+
+Conversão de imagens para PPM com o nível correto de compressão (P3) pode ser feito usando o image-magick: `convert image.? -compress none result.ppm`
