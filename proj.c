@@ -6,9 +6,11 @@
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
+#define MAX_W 4000
+#define MAX_H 2500
 
 /* A matriz será muito grande, causando falha de segmentação se estiver dentro de uma função a menos que se utilize alocação dinâmica. Portanto, já que isso não é cobrado, usa-se variável global */
-int I[2000][2000][4];
+int I[MAX_W][MAX_H][4];
 /* O número 4 no final é para que o índice 0 seja R, 1 = G, 2 = B e o 3 para a atribuição de classe para o processamento da imagem */
 struct imagem
 {
@@ -48,10 +50,10 @@ void openPPM(img *Img)
             fclose(fp);
             return ;
         }
-        /* Essa comparação é para que o arquivo não passe da resolução 2000x2000 */
-        if(Img->n > 2000||Img->m > 2000)
+        /* Essa comparação é para que o arquivo não passe da resolução máxima ([MAX_W]x[MAX_H]) */
+        if(Img->n > MAX_W||Img->m > MAX_H)
         {
-            printf("ERRO: Esse Arquivo de %dx%d é muito grande! A resolução máxima é de 2000x2000 pixels\n", Img->n, Img->m);
+            printf("ERRO: Esse Arquivo de %dx%d é muito grande! A resolução máxima é de %dx%d pixels\n", Img->n, Img->m, MAX_W, MAX_H);
             fclose(fp);
             return ;
         }
